@@ -3,50 +3,17 @@
   <head>
     <meta charset="utf-8" />
     <title>Greeter</title>
-    <style>
-      *{font-size:1.5em;}
-
-      button
-      {
-        width: 150px;
-        height: 50px;
-        font-size: 14px;
-      }
-    </style>
-
-    <script>
-      // 1 - get a reference to the button
-      // 2 - add a click event to button that calls a `sayHello` function
-
-      window.onload = init;
-
-      function init()
-      {
-        document.querySelector("#BTN-submit").onclick = () => {sayHello(document.querySelector("#input-firstname").value)};
-      }
-  
-      // 3 - create a `sayHello()` function
-      function sayHello(input)
-      {
-          input = String.trim(input);
-          input = input == "" ? "Peter" : input;
-  
-          console.log(input);
-  
-          //document.querySelector("#output").innerHTML = "Hello " + input;
-          document.querySelector("#output").innerHTML = `Hello ${input}`;
-      }
-      // 3A - get name of person from the <input>
-      // 3B - get a reference to the #output <p>
-      // 3C - update HTML of #output <p>
-      
-      </script>
-
-
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
   </head>
 <body>
-  <button id="BTN-submit">Click Me!</button>
-  <input id="input-firstname" placeholder="Type in your name">
+  <button id="BTN-hello">Say Hello</button><br>
+  <button id="BTN-goodbye">Say Goodbye</button>
+  <input type="checkbox" id="shoutCheckBox">
+  <label id="shoutLabel" for ="shoutCheckBox">Shoutify</label>
+  <hr>
+  <input id="input-firstname" placeholder="Type in your name"></input><br>
+  <input id="input-lastname" placeholder="Type in your name"></input>
   <p id="output">???</p>
   
 </body>
