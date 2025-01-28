@@ -11,12 +11,20 @@ function GetRandomWord(wordArry) {
     return wordArry[randomNumber];
 }
 
-function GenerateFullRandomWord() {
-    document.querySelector("#output").innerHTML = `${GetRandomWord(words1)} ${GetRandomWord(words2)} ${GetRandomWord(words3)}`;
+function init() 
+{
+    document.querySelector("#myButton").onclick = () => {GenerateTechno(1)};
+    document.querySelector("#generateFiveButton").onclick = () => {GenerateTechno(5)};
+    GenerateTechno(1);
 }
 
-function init() {
-    document.querySelector("#myButton").onclick = GenerateFullRandomWord;
+function GenerateTechno(num)
+{
+    document.querySelector("#output").innerHTML = ``;
+    for(let i = 0; i < num; i++)
+    {
+        document.querySelector("#output").innerHTML += `${GetRandomWord(words1)} ${GetRandomWord(words2)} ${GetRandomWord(words3)}<br>`;
+    }
 }
 
 window.onload = init;
