@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Canvas Shapes</title>
+    <style>
+        body{
+  font-family: sans-serif;
+}
+	
+button{
+  font-size:1.2em;
+}
+	
+section{
+  margin:.5em 0 .5em 0;
+}
+    </style>
+    <script>
+        "use strict";
+
+        window.onload = init;
+
+        let ctx;
+
+        function init() {
+            console.log("page loaded!");
+
+            let canvas = document.querySelector("canvas");
+            ctx = canvas.getContext("2d");
+
+            update();
+        }
+
+        function update() {
+            requestAnimationFrame(update);
+            drawRandomRect(ctx);
+        }
+
+        // handy helper functions!
+        function getRandomColor() {
+            function getByte() {
+                return 55 + Math.round(Math.random() * 200);
+            }
+            return "rgba(" + getByte() + "," + getByte() + "," + getByte() + ",.8)";
+        }
+
+        function getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        function drawRandomRect(ctx) {
+            ctx.fillStyle = getRandomColor();
+            ctx.strokeStyle = getRandomColor();
+            ctx.lineWidth = getRandomInt(1, 10);
+            ctx.fillRect(getRandomInt(0, 600), getRandomInt(0, 600), getRandomInt(0, 600), getRandomInt(0, 600));
+        }
+    </script>
+</head>
+
+<body>
+    <canvas width="640" height="480">
+        Get a real browser!
+    </canvas>
+    
+</body>
+
+</html>
