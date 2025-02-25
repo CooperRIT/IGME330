@@ -93,7 +93,12 @@
 
         function setupUI() {
             document.querySelector("#btnPause").onclick = () => { paused = true; }
-            document.querySelector("#btnPlay").onclick = () => {
+            document.querySelector("#btnPlay").onclick = () => 
+            {
+                if(!paused)
+                {
+                    return;
+                }
                 paused = false;
                 update();
             }
